@@ -19,7 +19,11 @@ fetch("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
         let ColorNewPositive = "#ffc107"
 
         //ordino i dati
-        let sorted = dati.reverse()
+        let sorted = dati; //.reverse();
+        console.log(sorted);
+        sorted = _.sortBy(dati, ['data', 'codice_regione']);
+        console.log(sorted);
+        sorted = _.orderBy(dati, ['data', 'codice_regione'], ['desc', 'asc']);
         console.log(sorted);
         //ultima data caricata
         let lastUpdated = sorted[0].data
